@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'inventory',
     'corsheaders',
     'orders',
@@ -86,10 +87,21 @@ CORS_ALLOW_METHODS = [
 ]
 CORS_ALLOW_HEADERS = [
     'content-type',
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'user-agent',
+    'x-requested-with',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Use this for development only; switch to CORS_ALLOWED_ORIGINS for production
 
+REST_FRAMEWORK = {
+  'DEFAULT_AUTHENTICATION_CLASS': [
+    'rest_framework.authentication.TokenAuthentication',
+  ],
+  'DEFAULT_PERMISSION_CLASS': [],
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
