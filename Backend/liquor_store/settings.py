@@ -99,10 +99,14 @@ CORS_ALLOW_ALL_ORIGINS = True  # Use this for development only; switch to CORS_A
 REST_FRAMEWORK = {
   'DEFAULT_AUTHENTICATION_CLASSES': [
     'rest_framework.authentication.TokenAuthentication',
+    'rest_framework.authentication.SessionAuthentication'
   ],
-#   'DEFAULT_PERMISSION_CLASS': [
-#     'rest_framework.permissions.IsAuthenticated',
-#   ],
+  'DEFAULT_PERMISSION_CLASSES': [],
+  'DEFAULT_RENDERER_CLASSES': [
+    'rest_framework.renderers.JSONRenderer',
+    'rest_framework.renderers.BrowsableAPIRenderer',
+  ],
+  'UPLOADED_FILES_USE_URL': True,
 }
 
 # Database
