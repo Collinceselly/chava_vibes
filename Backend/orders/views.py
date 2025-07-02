@@ -7,16 +7,19 @@ from .serializers import OrderSerializer
 from rest_framework.permissions import AllowAny, IsAdminUser
 
 
-class OrderView(generics.GenericAPIView, mixins.CreateModelMixin, mixins.ListModelMixin):
+class OrderList(generics.GenericAPIView, mixins.ListModelMixin):
   queryset = Order.objects.all().order_by('-created_at')
   serializer_class = OrderSerializer
+  permission_classes = [IsAdminUser]
 
-  def get_permissions(self):
-    # Allow anyone to create orders (POST)
-    if self.request.method == 'POST':
-      return [AllowAny()]
-    # restrict order listing and viewing (GET) to admins
-    return [IsAdminUser()]
+  def get(self, request, *args, **kwargs):
+    return self.list(request, *args, **kwargs)
+  
+  
+class OrderCreate(generics.GenericAPIView, mixins.CreateModelMixin):
+  queryset = Order.objects.all()
+  serializer_class = OrderSerializer
+  permission_classes = [AllowAny]
 
   def post(self, request, *args, **kwargs):
     response = self.create(request, *args, **kwargs)
@@ -30,5 +33,4 @@ class OrderView(generics.GenericAPIView, mixins.CreateModelMixin, mixins.ListMod
       'message': response.data
     }, status=status.HTTP_400_BAD_REQUEST)
   
-  def get(self, request, *args, **kwargs):
-    return self.list(request, *args, **kwargs)
+  
