@@ -78,12 +78,15 @@ WSGI_APPLICATION = 'liquor_store.wsgi.application'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'http://127.0.0.1:3000',
 ]
 
 CORS_ALLOW_METHODS = [
     'GET',
     'OPTIONS',
-    'POST'
+    'POST',
+    'PUT',
+    'DELETE',
 ]
 CORS_ALLOW_HEADERS = [
     'content-type',
@@ -92,6 +95,9 @@ CORS_ALLOW_HEADERS = [
     'authorization',
     'user-agent',
     'x-requested-with',
+    'x-csrftoken',
+    'dnt',
+    'origin',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Use this for development only; switch to CORS_ALLOWED_ORIGINS for production

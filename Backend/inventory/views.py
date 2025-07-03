@@ -35,7 +35,8 @@ class ProductDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.
   
   def put(self, request, *args, **kwargs):
     # ensure multipart/form-data is handles
-    serializer = self.get_serializer(data=request.data, partial=True)
+    instance = self.get_object() # Retrieve the existing instance
+    serializer = self.get_serializer(instance, data=request.data, partial=True)
     serializer.is_valid(raise_exception=True)
     self.perform_update(serializer)
     return Response(serializer.data)
