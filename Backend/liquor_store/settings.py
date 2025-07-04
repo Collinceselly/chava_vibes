@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'inventory',
     'corsheaders',
     'orders',
+    'otc_sales',
 
 ]
 
