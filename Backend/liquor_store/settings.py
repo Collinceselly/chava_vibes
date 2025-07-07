@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'orders',
     'otc_sales',
+    'reports',
 
 ]
 
