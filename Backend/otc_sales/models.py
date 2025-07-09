@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from inventory.models import Product
 import uuid
+from django.conf import settings
 
 def generate_transaction_id():
     return f"OTC{uuid.uuid4().hex[:8].upper()}"
@@ -13,7 +14,7 @@ class Transaction(models.Model):
     payment_method = models.CharField(max_length=50, choices=[('cash', 'Cash'), ('card', 'Card'), ('mobile', 'Mobile Money')], default='cash')
     sale_date = models.DateTimeField(auto_now_add=True)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    cashier = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    cashier = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):

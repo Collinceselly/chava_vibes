@@ -2,11 +2,14 @@
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework import status
+
 import traceback
 
+
 from .serializers import TransactionSerializer # Only need to import the main serializer
+from .models import Transaction
 
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
@@ -30,3 +33,11 @@ def create_transaction(request):
         return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
   
 
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def my_otc_transactions(request):
+    user = request.user
+    transactions = Transaction.objects.filter(cashier=user).order_by('-sale_date').prefetch_related('transaction_items')
+    serializer = TransactionSerializer(transactions, many=True)
+    return Response(serializer.data)

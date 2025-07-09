@@ -1,88 +1,88 @@
 name,price,description,category,quantity,image_filename
-Guinness,250,BEER,BEER,20,guinnes_bottle.jpeg
-White Cap,240,BEER,BEER,20,whitecap_bottle.jpeg
-Tusker Lager,220,BEER,BEER,20,lager_bottle.jpeg
-Tusker Lite,240,BEER,BEER,20,tusker_lite_bottle.jpeg
-Balozi,220,BEER,BEER,20,balozi_bottle.jpeg
-Tusker Cider,300,BEER,BEER,20,tusker_cider_bottle.jpeg
-Tusker Malt,240,BEER,BEER,20,tusker_malt_bottle.jpeg
-Pilsner,220,BEER,BEER,20,pilsner_bottle.jpeg
-Predator,100,PREDATOR,SOFT DRINK,20,predator.jpeg
-Lemonade,100,LEMONADE,SOFT DRINK,20,lemonade.jpeg
-Water,100,500 ML,SOFT DRINK,20,water.jpeg
-Delmonte,350,DELMONTE,SOFT DRINK,20,delmonte.jpeg
-Glass (1 L),150,1 L,SOFT DRINK,20,Soda T.A (500 ml).jpeg
-Soda T.A (1.2 L),180,1.2 L,SOFT DRINK,20,Soda T.A (1.2 L).jpeg
-Soda T.1 (350 ml),70,350 ML,SOFT DRINK,20,Soda T.1 (350 ml).jpeg
-Glass (350 ml),100,350 ML,SOFT DRINK,20,Glass (350 ml).jpeg
-Soda T.A (500 ml),120,500 ML,SOFT DRINK,20,Soda T.A (500 ml).jpeg
-Guarana,250,CAN,BEER,20,guarana.jpeg
-Pineapple Punch,250,CAN,BEER,20,Pineapple Punch.jpeg
-Tusker Lager,300,CAN,BEER,20,lager_can.jpeg
-Redbull,250,CAN,BEER,20,Redbull.jpeg
-Gordons,250,CAN,BEER,20,Gordons_can.jpeg
-Balozi,250,CAN,BEER,20,balozican.jpeg
-Black Ice,250,CAN,BEER,20,Black_Ice.jpeg
-Guinness,300,CAN,BEER,20,guinnes_can.jpeg
-OJ,350,CAN,BEER,20,OJ.jpeg
-Faxe,350,CAN,BEER,20,Faxe.jpeg
-Tusker Cider,300,CAN,BEER,20,tusker_cider_can.jpeg
-Snapp,250,CAN,BEER,20,Snapp.jpeg
-White Cap,300,CAN,BEER,20,whitecap_can.jpeg
-K.O,300,CAN,BEER,20,K.O.jpeg
-Savannah,300,CAN,BEER,20,Savanna.jpeg
-K.C Smooth,350,250 ML,SPIRITS,20,K.C_Smooth.jpeg
-K.C Pineapple,350,250 ML,SPIRITS,20,K.C_Pineapple.jpeg
-K.C Lemon & Ginger,350,250 ML,SPIRITS,20,K.C_Lemon & Ginger.jpeg
-Kane Extra,300,250 ML,SPIRITS,20,Kane_Extra.jpeg
-Kibao,300,250 ML,SPIRITS,20,Kibao.jpeg
-Konyagi,400,250 ML,SPIRITS,20,Konyagi.jpeg
-Richot,600,250 ML,SPIRITS,20,Richot.jpeg
-Smirnoff,600,250 ML,SPIRITS,20,Smirnoff.jpeg
-Gilbeys,600,250 ML,SPIRITS,20,Gilbeys.jpeg
-Hunters,400,250 ML,SPIRITS,20,Hunters.jpeg
-Chrome Gin,300,250 ML,SPIRITS,20,Chrome_Gin.jpeg
-Chrome Vodka,300,250 ML,SPIRITS,20,Chrome_Vodka.jpeg
-Best Gin,350,250 ML,SPIRITS,20,Best_Gin.jpeg
-Best Vodka,350,250 ML,SPIRITS,20,Best_Vodka.jpeg
-Best Whiskey,450,250 ML,SPIRITS,20,Best_Whiskey.jpeg
-County,300,250 ML,SPIRITS,20,County.jpeg
-Tripple Ace,270,250 ML,SPIRITS,20,Tripple_Ace.jpeg
-Blue Ice,200,250 ML,SPIRITS,20,Blue_Ice.jpeg
-All Seasons,550,250 ML,SPIRITS,20,All_Seasons.jpeg
-Viceroy,600,250 ML,SPIRITS,20,Viceroy.jpeg
-General Meakins,300,250 ML,SPIRITS,20,General_Meakins.jpeg
-Captain Morgan,450,250 ML,SPIRITS,20,Captain_Morgan.jpeg
-Richot,850,350 ML,SPIRITS,20,Richot.jpeg
-Smirnoff,850,350 ML,SPIRITS,20,Smirnoff.jpeg
-Hunters,700,350 ML,SPIRITS,20,Hunters.jpeg
-Gilbeys,850,350 ML,SPIRITS,20,Gilbeys.jpeg
-All Seasons,850,350 ML,SPIRITS,20,All_Seasons.jpeg
-Viceroy,850,350 ML,SPIRITS,20,Viceroy.jpeg
-K.C Smooth,550,350 ML,SPIRITS,20,K.C_Smooth.jpeg
-Grants,"1200",350 ML,SPIRITS,20,Grants.jpeg
-Red Label,"1200",350 ML,SPIRITS,20,Red_Label.jpeg
-Black Label,"2200",350 ML,SPIRITS,20,Black_Label.jpeg
-K.C Smooth,900,750 ML,SPIRITS,20,K.C_Smooth.jpeg
-K.C Pineapple,950,750 ML,SPIRITS,20,K.C_Pineapple.jpeg
-K.C Ginger,"1000",750 ML,SPIRITS,20,K.C_Lemon & Ginger.jpeg
-Konyagi,"1200",750 ML,SPIRITS,20,Konyagi.jpeg
-Martel,"7200",750 ML,SPIRITS,20,Martel.jpeg
-Black Label,"3600",750 ML,SPIRITS,20,Black_Label.jpeg
-Red Label,"2000",750 ML,SPIRITS,20,Red_Label.jpeg
-Four Seasons,"1200",750 ML,SPIRITS,20,Four Seasons.jpeg
-V & A,"1100",750 ML,SPIRITS,20,V & A.jpeg
-Gilbeys,"1700",750 ML,SPIRITS,20,Gilbeys.jpeg
-Gordons,"2500",750 ML,SPIRITS,20,Gordons_whisky.jpeg
-Hunters,"1220",750 ML,SPIRITS,20,Hunters.jpeg
-Captain Morgan,"1150",750 ML,SPIRITS,20,Captain_Morgan.jpeg
-Viceroy,"1700",750 ML,SPIRITS,20,Viceroy.jpeg
-Best Whiskey,"1300",750 ML,SPIRITS,20,Best_Whiskey.jpeg
-Best Vodka,"1000",750 ML,SPIRITS,20,Best_Vodka.jpeg
-Best Gin,"1100",750 ML,SPIRITS,20,Best_Gin.jpeg
-County,"1000",750 ML,SPIRITS,20,County.jpeg
-Smirnoff,"1700",750 ML,SPIRITS,20,Smirnoff.jpeg
-Chrome Gin,850,750 ML,SPIRITS,20,Chrome_Gin.jpeg
-Chrome Vodka,850,750 ML,SPIRITS,20,Chrome_Vodka.jpeg
-Beefooter,"1500",750 ML,SPIRITS,20,Beefooter.jpeg
-Smirnoff Citrus,"1500",750 ML,SPIRITS,20,Smirnoff_Citrus.jpeg
+Guinness,250,Bottle (500 ml),BEER,20,guinnes_bottle.jpeg
+White Cap,240,Bottle (500 ml),BEER,20,whitecap_bottle.jpeg
+Tusker Lager,220,Bottle (500 ml),BEER,20,lager_bottle.jpeg
+Tusker Lite,240,Bottle (500 ml),BEER,20,tusker_lite_bottle.jpeg
+Balozi,220,Bottle (500 ml),BEER,20,balozi_bottle.jpeg
+Tusker Cider,300,Bottle (500 ml),BEER,20,tusker_cider_bottle.jpeg
+Tusker Malt,240,Bottle (500 ml),BEER,20,tusker_malt_bottle.jpeg
+Pilsner,220,Bottle (500 ml),BEER,20,pilsner_bottle.jpeg
+Predator,100,300 ml,SOFT DRINK,20,predator.jpeg
+Lemonade,100,200 ml,SOFT DRINK,20,lemonade.jpeg
+Water,100,500 ml,SOFT DRINK,20,water.jpeg
+Delmonte,350,1 l,SOFT DRINK,20,delmonte.jpeg
+Glass (1 L),150,1 l,SOFT DRINK,20,Soda T.A (500 ml).jpeg
+Soda T.A (1.2 L),180,1.2 l,SOFT DRINK,20,Soda T.A (1.2 L).jpeg
+Soda T.1 (350 ml),70,350 ml,SOFT DRINK,20,Soda T.1 (350 ml).jpeg
+Glass (350 ml),100,350 ml,SOFT DRINK,20,Glass (350 ml).jpeg
+Soda T.A (500 ml),120,500 ml,SOFT DRINK,20,Soda T.A (500 ml).jpeg
+Guarana,250,Can (500 ml),BEER,20,guarana.jpeg
+Pineapple Punch,250,Can (500 ml),BEER,20,Pineapple Punch.jpeg
+Tusker Lager,300,Can (500 ml),BEER,20,lager_can.jpeg
+Redbull,250,Can (500 ml),BEER,20,Redbull.jpeg
+Gordons,250,Can (500 ml),BEER,20,Gordons_can.jpeg
+Balozi,250,Can (500 ml),BEER,20,balozican.jpeg
+Black Ice,250,Can (500 ml),BEER,20,Black_Ice.jpeg
+Guinness,300,Can (500 ml),BEER,20,guinnes_can.jpeg
+OJ,350,Can (500 ml),BEER,20,OJ.jpeg
+Faxe,350,Can (500 ml),BEER,20,Faxe.jpeg
+Tusker Cider,300,Can (500 ml),BEER,20,tusker_cider_can.jpeg
+Snapp,250,Can (500 ml),BEER,20,Snapp.jpeg
+White Cap,300,Can (500 ml),BEER,20,whitecap_can.jpeg
+K.O,300,Can (500 ml),BEER,20,K.O.jpeg
+Savannah,300,Can (500 ml),BEER,20,Savanna.jpeg
+K.C Smooth,350,250 ml,SPIRITS,20,K.C_Smooth.jpeg
+K.C Pineapple,350,250 ml,SPIRITS,20,K.C_Pineapple.jpeg
+K.C Lemon & Ginger,350,250 ml,SPIRITS,20,K.C_Lemon & Ginger.jpeg
+Kane Extra,300,250 ml,SPIRITS,20,Kane_Extra.jpeg
+Kibao,300,250 ml,SPIRITS,20,Kibao.jpeg
+Konyagi,400,250 ml,SPIRITS,20,Konyagi.jpeg
+Richot,600,250 ml,SPIRITS,20,Richot.jpeg
+Smirnoff,600,250 ml,SPIRITS,20,Smirnoff.jpeg
+Gilbeys,600,250 ml,SPIRITS,20,Gilbeys.jpeg
+Hunters,400,250 ml,SPIRITS,20,Hunters.jpeg
+Chrome Gin,300,250 ml,SPIRITS,20,Chrome_Gin.jpeg
+Chrome Vodka,300,250 ml,SPIRITS,20,Chrome_Vodka.jpeg
+Best Gin,350,250 ml,SPIRITS,20,Best_Gin.jpeg
+Best Vodka,350,250 ml,SPIRITS,20,Best_Vodka.jpeg
+Best Whiskey,450,250 ml,SPIRITS,20,Best_Whiskey.jpeg
+County,300,250 ml,SPIRITS,20,County.jpeg
+Tripple Ace,270,250 ml,SPIRITS,20,Tripple_Ace.jpeg
+Blue Ice,200,250 ml,SPIRITS,20,Blue_Ice.jpeg
+All Seasons,550,250 ml,SPIRITS,20,All_Seasons.jpeg
+Viceroy,600,250 ml,SPIRITS,20,Viceroy.jpeg
+General Meakins,300,250 ml,SPIRITS,20,General_Meakins.jpeg
+Captain Morgan,450,250 ml,SPIRITS,20,Captain_Morgan.jpeg
+Richot,850,350 ml,SPIRITS,20,Richot.jpeg
+Smirnoff,850,350 ml,SPIRITS,20,Smirnoff.jpeg
+Hunters,700,350 ml,SPIRITS,20,Hunters.jpeg
+Gilbeys,850,350 ml,SPIRITS,20,Gilbeys.jpeg
+All Seasons,850,350 ml,SPIRITS,20,All_Seasons.jpeg
+Viceroy,850,350 ml,SPIRITS,20,Viceroy.jpeg
+K.C Smooth,550,350 ml,SPIRITS,20,K.C_Smooth.jpeg
+Grants,1200,350 ml,SPIRITS,20,Grants.jpeg
+Red Label,1200,350 ml,SPIRITS,20,Red_Label.jpeg
+Black Label,2200,350 ml,SPIRITS,20,Black_Label.jpeg
+K.C Smooth,900,750 ml,SPIRITS,20,K.C_Smooth.jpeg
+K.C Pineapple,950,750 ml,SPIRITS,20,K.C_Pineapple.jpeg
+K.C Ginger,1000,750 ml,SPIRITS,20,K.C_Lemon & Ginger.jpeg
+Konyagi,1200,750 ml,SPIRITS,20,Konyagi.jpeg
+Martel,7200,750 ml,SPIRITS,20,Martel.jpeg
+Black Label,3600,750 ml,SPIRITS,20,Black_Label.jpeg
+Red Label,2000,750 ml,SPIRITS,20,Red_Label.jpeg
+Four Seasons,1200,750 ml,SPIRITS,20,Four Seasons.jpeg
+V & A,1100,750 ml,SPIRITS,20,V & A.jpeg
+Gilbeys,1700,750 ml,SPIRITS,20,Gilbeys.jpeg
+Gordons,2500,750 ml,SPIRITS,20,Gordons_whisky.jpeg
+Hunters,1220,750 ml,SPIRITS,20,Hunters.jpeg
+Captain Morgan,1150,750 ml,SPIRITS,20,Captain_Morgan.jpeg
+Viceroy,1700,750 ml,SPIRITS,20,Viceroy.jpeg
+Best Whiskey,1300,750 ml,SPIRITS,20,Best_Whiskey.jpeg
+Best Vodka,1000,750 ml,SPIRITS,20,Best_Vodka.jpeg
+Best Gin,1100,750 ml,SPIRITS,20,Best_Gin.jpeg
+County,1000,750 ml,SPIRITS,20,County.jpeg
+Smirnoff,1700,750 ml,SPIRITS,20,Smirnoff.jpeg
+Chrome Gin,850,750 ml,SPIRITS,20,Chrome_Gin.jpeg
+Chrome Vodka,850,750 ml,SPIRITS,20,Chrome_Vodka.jpeg
+Beefooter,1500,750 ml,SPIRITS,20,Beefooter.jpeg
+Smirnoff Citrus,1500,750 ml,SPIRITS,20,Smirnoff_Citrus.jpeg

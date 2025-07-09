@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -101,6 +102,8 @@ CORS_ALLOW_HEADERS = [
     'dnt',
     'origin',
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 CORS_ALLOW_ALL_ORIGINS = True  # Use this for development only; switch to CORS_ALLOWED_ORIGINS for production
 
