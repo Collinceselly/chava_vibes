@@ -101,11 +101,14 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'dnt',
     'origin',
+    'x-restock-intent'
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
 CORS_ALLOW_ALL_ORIGINS = True  # Use this for development only; switch to CORS_ALLOWED_ORIGINS for production
+
+CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {
   'DEFAULT_AUTHENTICATION_CLASSES': [

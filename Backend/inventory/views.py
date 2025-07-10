@@ -22,7 +22,9 @@ class ProductList(mixins.ListModelMixin, generics.GenericAPIView):
   
 
   def get(self, request, *args, **kwargs):
-    return self.list(request, *args, **kwargs)
+    queryset = self.get_queryset() # Use the full queryset
+    serializer = self.get_serializer(queryset, many=True)
+    return Response(serializer.data)
 
 
 class ProductDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
@@ -34,13 +36,23 @@ class ProductDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.
     return self.retrieve(request, *args, **kwargs)
   
   def put(self, request, *args, **kwargs):
-    # ensure multipart/form-data is handles
-    instance = self.get_object() # Retrieve the existing instance
+    instance = self.get_object()
+    # serializer = self.get_serializer(instance, data=request.data, partial=True)
+    # serializer.is_valid(raise_exception=True)
+
+
+    if request.headers.get('X-Restock-Intent', 'false').lower() == 'true' and 'quantity' in request.data:
+      current_quantity = instance.quantity
+      restock_amount = int(request.data['quantity'])
+      instance.quantity = current_quantity + restock_amount # Increment quantity
+      instance.save()
+      serializer = self.get_serializer(instance)
+      return Response(serializer.data)
+    
     serializer = self.get_serializer(instance, data=request.data, partial=True)
     serializer.is_valid(raise_exception=True)
     self.perform_update(serializer)
     return Response(serializer.data)
-    # return self.update(request, *args, **kwargs)
   
   def delete(self, request, *args, **kwargs):
     return self.destroy(request, *args, **kwargs)
