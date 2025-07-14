@@ -58,7 +58,7 @@ class OrderCreate(generics.GenericAPIView, mixins.CreateModelMixin):
                     'message': f'Error processing item: {str(e)}'
                 }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        # Prepare order data with corrected keys
+        # Prepare order data with corrected keys and pass to serializer
         order_data = {
             'first_name': data.get('firstName'),
             'last_name': data.get('lastName'),
@@ -69,7 +69,7 @@ class OrderCreate(generics.GenericAPIView, mixins.CreateModelMixin):
             'payment_method': data.get('paymentMethod'),
             'total': data.get('total'),
             'additional_notes': data.get('additionalNotes'),
-            'cart_items': data.get('cartItems'),
+            'cart_items': cart_items,  # Ensure cart_items is explicitly included
             'status': data.get('status', 'pending'),
         }
         logger.info(f"Prepared order data: {order_data}")
@@ -98,3 +98,19 @@ class OrderCreate(generics.GenericAPIView, mixins.CreateModelMixin):
                 'status': 'error',
                 'message': f'Server error: {str(e)}'
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class OrderDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsAdminUser]
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+    
+    def put(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return self.update(request, *args, **kwargs)
+    
+    def patch(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return self.update(request, *args, **kwargs)

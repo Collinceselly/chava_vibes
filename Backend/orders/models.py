@@ -10,7 +10,7 @@ class Order(models.Model):
     last_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=15)
     email_address = models.EmailField()
-    delivery_address = models.TextField()
+    delivery_address = models.TextField(null=True)
     delivery_option = models.CharField(max_length=20, choices=[('pickup', 'Pickup'), ('delivery', 'Delivery')])
     payment_method = models.CharField(max_length=20)
     total = models.DecimalField(max_digits=10, decimal_places=2)
@@ -21,8 +21,10 @@ class Order(models.Model):
     status = models.CharField(max_length=20, default='pending', choices=[
         ('pending', 'Pending'),
         ('processing', 'Processing'),
+        ('ready_for_pickup', 'Ready for Pickup'),
+        ('collected', 'Collected'),
+        ('shipped', 'Shipped'),
         ('delivered', 'Delivered'),
-        ('cancelled', 'Cancelled')
     ])
     timestamp = models.DateTimeField(default=timezone.now)
 
