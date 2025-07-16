@@ -1,14 +1,21 @@
 from django.db import models
 import uuid
 from django.utils import timezone
+import re
+from django.core.exceptions import ValidationError
+
 
 def generate_transaction_id():
     return f"OON{uuid.uuid4().hex[:8].upper()}"
 
+def validate_kenyan_phone(value):
+    if not re.match(r'^\+254\d{9}$', value):
+        raise ValidationError('Phone number must be in +254XXXXXXXXX format (10 digits after +254)')
+
 class Order(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=15, validators=[validate_kenyan_phone])
     email_address = models.EmailField()
     delivery_address = models.TextField(null=True)
     delivery_option = models.CharField(max_length=20, choices=[('pickup', 'Pickup'), ('delivery', 'Delivery')])

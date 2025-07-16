@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Order
+import re
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,7 +21,18 @@ class OrderSerializer(serializers.ModelSerializer):
         if 'last_name' in data or 'lastName' in data:
             mapped_data['last_name'] = data.get('last_name') or data.get('lastName')
         if 'phone_number' in data or 'phoneNumber' in data:
-            mapped_data['phone_number'] = data.get('phone_number') or data.get('phoneNumber')
+            phone_number = data.get('phone_number') or data.get('phoneNumber')
+            # Normalize phone number to ensure correct +254 format
+            if phone_number:
+                # Remove any existing country code (+254 or 0) and extra characters
+                phone_number = re.sub(r'^\+?2540?|^0', '', phone_number)  # Remove +254, +2540, or leading 0
+                phone_number = phone_number.strip()  # Remove any whitespace
+                if len(phone_number) == 9:  # Assume 9 digits is the local number
+                    phone_number = f"+254{phone_number}"
+                else:
+                    raise serializers.ValidationError({'phone_number': 'Invalid phone number length; must be 9 digits after country code'})
+                phone_number = phone_number[:13]  # Limit to +254 followed by 9 digits
+            mapped_data['phone_number'] = phone_number
         if 'email_address' in data or 'emailAddress' in data:
             mapped_data['email_address'] = data.get('email_address') or data.get('emailAddress')
         if 'delivery_address' in data or 'deliveryAddress' in data:
@@ -54,6 +66,12 @@ class OrderSerializer(serializers.ModelSerializer):
         if 'delivery_option' in data and data.get('delivery_option') == 'delivery':
             if 'delivery_address' not in data or not data.get('delivery_address'):
                 raise serializers.ValidationError({'delivery_address': 'Delivery address is required for delivery orders'})
+        # Validate phone number format
+        if 'phone_number' in data:
+            phone_number = data.get('phone_number')
+            logger.info(f"Validating phone number: {phone_number}")
+            if not phone_number or not re.match(r'^\+254\d{9}$', phone_number):
+                raise serializers.ValidationError({'phone_number': 'Phone number must be in +254XXXXXXXXX format (10 digits after +254)'})
         return data
 
     def update(self, instance, validated_data):

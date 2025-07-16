@@ -8,6 +8,7 @@ from .serializers import OrderSerializer
 from rest_framework.permissions import AllowAny, IsAdminUser
 from django.core.exceptions import ValidationError
 import logging
+from .notifications import send_sms  # Import the SMS function
 
 logger = logging.getLogger(__name__)
 
@@ -81,6 +82,18 @@ class OrderCreate(generics.GenericAPIView, mixins.CreateModelMixin):
             logger.info(f"Validated data: {serializer.validated_data}")
             self.perform_create(serializer)
             headers = self.get_success_headers(serializer.data)
+
+            # Send SMS notification after successful order creation
+            order = serializer.instance
+            phone_number = order.phone_number
+            logger.info(f"Attempting to send SMS to: {phone_number}")
+            message = f"Dear Customer,\nYour order No {order.transactionId} has been received and is being processed. Thank you for ordering with Chava Vibes Liquor Store."
+            try:
+                send_sms(phone_number, message)
+                logger.info(f"SMS sent successfully to {phone_number}")
+            except Exception as e:
+                logger.error(f"Failed to send SMS to {phone_number}: {str(e)}")
+
             return Response({
                 'status': 'success',
                 'message': f'Order #{serializer.instance.id} placed successfully',
@@ -107,10 +120,59 @@ class OrderDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generics.
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
     
-    def put(self, request, *args, **kwargs):
-        kwargs['partial'] = True
-        return self.update(request, *args, **kwargs)
-    
     def patch(self, request, *args, **kwargs):
         kwargs['partial'] = True
-        return self.update(request, *args, **kwargs)
+        instance = self.get_object()  # Ensure instance is defined here
+        old_status = instance.status  # Use the original status for comparison
+        logger.info(f"Initial database state for order {instance.id}: status={instance.status}, delivery_option={instance.delivery_option}")
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        # Send SMS notification based on status and delivery option
+        order = serializer.instance
+        phone_number = order.phone_number
+        logger.info(f"Updating order {order.id} with status: {order.status}, delivery_option: {order.delivery_option}, old status: {old_status}")
+
+        try:
+            # Debug conditions
+            logger.info(f"Checking processing condition: order.status={order.status}, old_status={old_status}")
+            if order.status == 'processing' and old_status == 'pending':
+                message = f"Dear Customer,\nYour order No {order.transactionId} is being processed, we shall notify you as soon as it is ready. Thank you."
+                logger.info(f"Sending SMS: {message}")
+                send_sms(phone_number, message)
+                logger.info(f"SMS sent for processing status to {phone_number}")
+            elif order.status == 'ready_for_pickup' and old_status != 'ready_for_pickup' and order.delivery_option == 'pickup':
+                message = f"Dear Customer,\nYour order No {order.transactionId} has been processed and ready for pick up. Visit our shop at Chava Vibes near Twin Kids Academy Umoja2. Thank you."
+                logger.info(f"Sending SMS: {message}")
+                send_sms(phone_number, message)
+                logger.info(f"SMS sent for ready for pickup to {phone_number}")
+            elif order.status == 'collected' and old_status != 'collected' and order.delivery_option == 'pickup':
+                message = f"Dear Customer,\nYour order number {order.transactionId} has been collected. Thank you for ordering with Chava Vibes Liquor Store."
+                logger.info(f"Sending SMS: {message}")
+                send_sms(phone_number, message)
+                logger.info(f"SMS sent for collected status to {phone_number}")
+            elif order.status == 'shipped' and old_status != 'shipped' and order.delivery_option == 'delivery':
+                message = f"Dear Customer,\nYour order No {order.transactionId} has been processed and issued and assigned for delivery. The rider shall contact you as soon as they arrive at your doorstep."
+                logger.info(f"Sending SMS: {message}")
+                send_sms(phone_number, message)
+                logger.info(f"SMS sent for shipped status to {phone_number}")
+            elif order.status == 'delivered' and old_status != 'delivered' and order.delivery_option == 'delivery':
+                message = f"Dear Customer,\nYour order No {order.transactionId} has been successfully delivered, thank you for ordering with us and welcome again."
+                logger.info(f"Sending SMS: {message}")
+                send_sms(phone_number, message)
+                logger.info(f"SMS sent for delivered status to {phone_number}")
+            else:
+                logger.warning(f"No SMS sent for order {order.id}: No matching status transition")
+        except Exception as e:
+            logger.error(f"Failed to send SMS for order {order.id} update: {str(e)}", exc_info=True)
+
+        return Response({
+            'status': 'success',
+            'message': f'Order #{order.id} updated successfully',
+            'transactionId': order.transactionId
+        }, status=status.HTTP_200_OK)
+        
+        def put(self, request, *args, **kwargs):
+            kwargs['partial'] = True
+            return self.update(request, *args, **kwargs)
